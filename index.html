@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Communication Connections Speech Pathology | Maitland, NSW</title>
     <meta name="description" content="Quality, family-focused speech pathology services for children 0-18 in Maitland, NSW. Supporting communication, language, literacy, and feeding development.">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,10 +16,12 @@
         :root {
             --purple-primary: #8b70bd;
             --purple-dark: #6d28d9;
-            --purple-light: #ede9fe;
-            --purple-lighter: #f5f3ff;
-            --teal: #14b8a6;
-            --orange: #f59e0b;
+            --purple-light: #c4b5fd;
+            --purple-lighter: #ede9fe;
+            --purple-pale: #f5f3ff;
+            --peach: #ff9a76;
+            --peach-light: #ffb396;
+            --peach-pale: #fff5f0;
             --gray-900: #111827;
             --gray-800: #1f2937;
             --gray-700: #374151;
@@ -45,12 +47,17 @@
             position: sticky;
             top: 0;
             z-index: 1000;
+            transition: all 0.3s;
+        }
+
+        .nav.scrolled {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
         }
 
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -59,13 +66,14 @@
         .logo-link {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.875rem;
             text-decoration: none;
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
         }
 
         .logo-text-nav {
@@ -74,14 +82,14 @@
         }
 
         .brand-name-nav {
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             font-weight: 800;
             color: var(--purple-primary);
             line-height: 1.2;
         }
 
         .brand-tagline-nav {
-            font-size: 0.75rem;
+            font-size: 0.6875rem;
             color: var(--gray-600);
             font-weight: 500;
         }
@@ -99,22 +107,11 @@
             font-weight: 500;
             font-size: 0.9375rem;
             transition: color 0.2s;
-            position: relative;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--purple-primary);
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--purple-primary);
         }
 
         .btn-nav {
@@ -133,21 +130,60 @@
             box-shadow: 0 4px 12px rgba(139, 112, 189, 0.3);
         }
 
-        /* Mobile Menu Toggle */
+        /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--gray-700);
             cursor: pointer;
+            padding: 0.5rem;
         }
 
-        /* Hero Section */
+        .hamburger {
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            transition: all 0.3s;
+        }
+
+        .hamburger::before {
+            top: -7px;
+        }
+
+        .hamburger::after {
+            top: 7px;
+        }
+
+        .mobile-menu-toggle.active .hamburger {
+            background: transparent;
+        }
+
+        .mobile-menu-toggle.active .hamburger::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger::after {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        /* Hero */
         .hero {
             background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-dark) 100%);
             color: white;
-            padding: 6rem 2rem;
+            padding: 5rem 1.5rem;
             text-align: center;
         }
 
@@ -157,16 +193,16 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 800;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.25rem;
             letter-spacing: -0.02em;
         }
 
         .hero p {
-            font-size: 1.25rem;
-            margin-bottom: 2.5rem;
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
             opacity: 0.95;
             line-height: 1.7;
         }
@@ -179,7 +215,7 @@
         }
 
         .btn {
-            padding: 1rem 2rem;
+            padding: 0.875rem 1.75rem;
             border-radius: 100px;
             font-weight: 600;
             font-size: 1rem;
@@ -214,96 +250,149 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
-        /* Section */
         .section {
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
 
         .section-header {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
         }
 
         .section-header h2 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             font-weight: 700;
             color: var(--gray-900);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             letter-spacing: -0.01em;
         }
 
         .section-header p {
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             color: var(--gray-600);
             max-width: 700px;
             margin: 0 auto;
         }
 
-        /* Feature Cards */
+        /* Feature Cards - Compact */
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
         }
 
         .feature-card {
             background: white;
             border: 1px solid var(--gray-200);
             border-radius: 1rem;
-            padding: 2rem;
+            padding: 1.5rem;
             transition: all 0.3s;
         }
 
         .feature-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
             border-color: var(--purple-light);
         }
 
         .feature-icon {
-            width: 64px;
-            height: 64px;
-            background: var(--purple-light);
-            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            background: var(--purple-lighter);
+            border-radius: 0.75rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
         }
 
         .feature-card h3 {
-            font-size: 1.25rem;
+            font-size: 1.0625rem;
             font-weight: 700;
             color: var(--gray-900);
-            margin-bottom: 0.75rem;
+            margin-bottom: 0.5rem;
         }
 
         .feature-card p {
             color: var(--gray-600);
-            line-height: 1.7;
+            line-height: 1.6;
+            font-size: 0.9375rem;
         }
 
-        /* Stats Section */
+        /* Services Grid - Compact */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.25rem;
+        }
+
+        .service-card {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            transition: all 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-color: var(--peach-light);
+        }
+
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--peach-pale);
+            border-radius: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+
+        .service-icon svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.0625rem;
+            font-weight: 700;
+            color: var(--gray-900);
+            margin-bottom: 0.5rem;
+        }
+
+        .service-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+            font-size: 0.9375rem;
+        }
+
+        /* Stats */
         .stats {
-            background: var(--purple-lighter);
-            padding: 4rem 2rem;
-            border-radius: 2rem;
+            background: var(--purple-pale);
+            padding: 3rem 2rem;
+            border-radius: 1.5rem;
         }
 
         .stats-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
             text-align: center;
         }
 
         .stat-item h3 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--purple-primary);
             margin-bottom: 0.5rem;
@@ -314,63 +403,94 @@
             font-weight: 500;
         }
 
-        /* CTA Section */
+        /* FAQ */
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            border: 1px solid var(--gray-200);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            width: 100%;
+            text-align: left;
+            padding: 1.25rem 1.5rem;
+            background: white;
+            border: none;
+            font-family: inherit;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--gray-900);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.2s;
+        }
+
+        .faq-question:hover {
+            background: var(--gray-50);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--purple-primary);
+            transition: transform 0.3s;
+        }
+
+        .faq-question.active::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer-content {
+            padding: 0 1.5rem 1.25rem;
+            color: var(--gray-600);
+            line-height: 1.7;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        /* CTA */
         .cta-section {
-            background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-dark) 100%);
+            background: linear-gradient(135deg, var(--peach) 0%, var(--peach-light) 100%);
             color: white;
-            padding: 5rem 2rem;
-            border-radius: 2rem;
+            padding: 4rem 2rem;
+            border-radius: 1.5rem;
             text-align: center;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
         .cta-section p {
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             margin-bottom: 2rem;
             opacity: 0.95;
-        }
-
-        /* Contact Info Bar */
-        .contact-bar {
-            background: var(--gray-900);
-            color: white;
-            padding: 1.5rem 2rem;
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .contact-item-icon {
-            font-size: 1.25rem;
-        }
-
-        .contact-item a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-item a:hover {
-            color: var(--purple-light);
         }
 
         /* Footer */
         .footer {
             background: var(--gray-900);
             color: var(--gray-300);
-            padding: 3rem 2rem 2rem;
+            padding: 3rem 1.5rem 2rem;
         }
 
         .footer-content {
@@ -378,13 +498,13 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            gap: 2.5rem;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
             color: white;
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -394,6 +514,7 @@
             color: var(--gray-300);
             line-height: 1.8;
             text-decoration: none;
+            font-size: 0.9375rem;
         }
 
         .footer-section a:hover {
@@ -408,33 +529,87 @@
             margin-bottom: 0.5rem;
         }
 
+        .footer-statement {
+            background: rgba(255,255,255,0.05);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .footer-flag {
+            width: 40px;
+            height: auto;
+            border-radius: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .footer-statement-text {
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
         .footer-bottom {
-            border-top: 1px solid var(--gray-700);
+            border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 2rem;
             text-align: center;
             color: var(--gray-500);
             font-size: 0.875rem;
         }
 
-        .hours-list {
-            list-style: none;
-        }
-
-        .hours-list li {
+        /* Contact Bar */
+        .contact-bar {
+            background: var(--gray-800);
+            color: white;
+            padding: 1rem 1.5rem;
             display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--gray-700);
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.9375rem;
         }
 
-        .hours-list li:last-child {
-            border-bottom: none;
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* Responsive */
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--purple-light);
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .nav {
+                background: var(--purple-primary);
+            }
+
+            .nav-container {
+                padding: 0.875rem 1rem;
+            }
+
+            .brand-name-nav,
+            .brand-tagline-nav {
+                color: white;
+            }
+
             .mobile-menu-toggle {
                 display: block;
+            }
+
+            .hamburger,
+            .hamburger::before,
+            .hamburger::after {
+                background: white;
             }
 
             .nav-links {
@@ -446,7 +621,7 @@
                 background: white;
                 flex-direction: column;
                 padding: 1rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                 gap: 0;
             }
 
@@ -457,8 +632,16 @@
             .nav-links li {
                 width: 100%;
                 text-align: center;
-                padding: 1rem 0;
+                padding: 0.875rem 0;
                 border-bottom: 1px solid var(--gray-100);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .hero {
+                padding: 3.5rem 1.25rem;
             }
 
             .hero h1 {
@@ -473,25 +656,55 @@
                 font-size: 1.75rem;
             }
 
-            .features-grid {
+            .features-grid,
+            .services-grid {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
 
             .contact-bar {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .features-grid,
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo-link">
                 <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 40 35 C 20 35, 10 50, 10 75 C 10 100, 20 115, 40 115 C 50 115, 55 112, 60 108 L 55 95 C 50 98, 45 100, 40 100 C 30 100, 25 90, 25 75 C 25 60, 30 50, 40 50 C 50 50, 60 55, 75 70 C 90 85, 110 110, 130 130 C 145 145, 155 150, 165 150 C 180 150, 190 135, 190 110 C 190 85, 180 70, 165 70 C 155 70, 150 73, 145 77 L 150 90 C 155 87, 160 85, 165 85 C 175 85, 180 95, 180 110 C 180 125, 175 135, 165 135 C 155 135, 145 130, 130 115 C 115 100, 95 75, 75 55 C 60 40, 50 35, 40 35 Z" fill="#8b70bd"/>
-                    <path d="M 35 160 C 20 160, 10 145, 10 120 C 10 95, 20 80, 35 80 C 45 80, 50 83, 55 87 L 60 100 C 55 97, 50 95, 45 95 C 35 95, 30 105, 30 120 C 30 135, 35 145, 45 145 C 55 145, 65 140, 80 125 C 95 110, 115 85, 135 65 C 150 50, 160 45, 170 45 C 185 45, 195 60, 195 85 C 195 110, 185 125, 170 125 C 160 125, 155 122, 150 118 L 145 105 C 150 108, 155 110, 160 110 C 170 110, 175 100, 175 85 C 175 70, 170 60, 160 60 C 150 60, 140 65, 125 80 C 110 95, 90 120, 70 140 C 55 155, 45 160, 35 160 Z" fill="#9370db" opacity="0.95"/>
+                    <defs>
+                        <mask id="mask1">
+                            <rect width="200" height="200" fill="white"/>
+                            <circle cx="110" cy="100" r="55" fill="black"/>
+                        </mask>
+                        <mask id="mask2">
+                            <rect width="200" height="200" fill="white"/>
+                            <circle cx="90" cy="100" r="55" fill="black"/>
+                        </mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="#8b70bd" mask="url(#mask1)"/>
+                    <circle cx="110" cy="100" r="55" fill="#c4b5fd" mask="url(#mask2)"/>
+                    <circle cx="100" cy="100" r="25" fill="#9370db"/>
                 </svg>
                 <div class="logo-text-nav">
                     <div class="brand-name-nav">Communication Connections</div>
@@ -499,7 +712,9 @@
                 </div>
             </a>
             
-            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            <button class="mobile-menu-toggle" id="mobileToggle" onclick="toggleMenu()">
+                <div class="hamburger"></div>
+            </button>
             
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html" class="active">Home</a></li>
@@ -509,7 +724,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero -->
     <section class="hero">
         <div class="hero-content">
             <h1>Supporting Every Voice,<br>One Child at a Time</h1>
@@ -531,45 +746,88 @@
 
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">👨‍👩‍👧</div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 21V19C17 17.9391 16.5786 16.9217 15.8284 16.1716C15.0783 15.4214 14.0609 15 13 15H5C3.93913 15 2.92172 15.4214 2.17157 16.1716C1.42143 16.9217 1 17.9391 1 19V21" stroke="#8b70bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 11C11.2091 11 13 9.20914 13 7C13 4.79086 11.2091 3 9 3C6.79086 3 5 4.79086 5 7C5 9.20914 6.79086 11 9 11Z" stroke="#8b70bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M23 21V19C22.9993 18.1137 22.7044 17.2528 22.1614 16.5523C21.6184 15.8519 20.8581 15.3516 20 15.13" stroke="#8b70bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 3.13C16.8604 3.35031 17.623 3.85071 18.1676 4.55232C18.7122 5.25392 19.0078 6.11683 19.0078 7.005C19.0078 7.89318 18.7122 8.75608 18.1676 9.45769C17.623 10.1593 16.8604 10.6597 16 10.88" stroke="#8b70bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Family-Focused Care</h3>
-                    <p>We work collaboratively with families, ensuring parents and caregivers are empowered partners in their child's communication journey.</p>
+                    <p>We work collaboratively with families, ensuring parents and caregivers are empowered partners in their child's journey.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#8b70bd" stroke-width="2"/>
+                            <circle cx="12" cy="12" r="3" fill="#8b70bd"/>
+                            <path d="M12 2V6" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M12 18V22" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M22 12H18" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M6 12H2" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <h3>Individualized Programs</h3>
-                    <p>Every child is unique. We tailor our therapy approaches to match each child's strengths, interests, and specific needs.</p>
+                    <p>Every child is unique. We tailor our therapy to match each child's strengths, interests, and specific needs.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🌟</div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 11.08V12C21.9988 14.1564 21.3005 16.2547 20.0093 17.9818C18.7182 19.7088 16.9033 20.9725 14.8354 21.5839C12.7674 22.1953 10.5573 22.1219 8.53447 21.3746C6.51168 20.6273 4.78465 19.2461 3.61096 17.4371C2.43727 15.628 1.87979 13.4881 2.02168 11.3363C2.16356 9.18455 2.99721 7.13631 4.39828 5.49706C5.79935 3.85781 7.69279 2.71537 9.79619 2.24013C11.8996 1.76489 14.1003 1.98232 16.07 2.86" stroke="#8b70bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M22 4L12 14.01L9 11.01" stroke="#8b70bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Evidence-Based Practice</h3>
                     <p>Our therapy methods are grounded in the latest research and best practice guidelines in speech pathology.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🏡</div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 10C21 17 12 23 12 23C12 23 3 17 3 10C3 7.61305 3.94821 5.32387 5.63604 3.63604C7.32387 1.94821 9.61305 1 12 1C14.3869 1 16.6761 1.94821 18.364 3.63604C20.0518 5.32387 21 7.61305 21 10Z" stroke="#8b70bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="12" cy="10" r="3" stroke="#8b70bd" stroke-width="2"/>
+                        </svg>
+                    </div>
                     <h3>Local & Accessible</h3>
                     <p>Proudly serving Maitland and surrounding areas with flexible appointment times to suit busy family schedules.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">💬</div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#8b70bd" stroke-width="2"/>
+                            <path d="M8 14C8 14 9.5 16 12 16C14.5 16 16 14 16 14" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="9" cy="9" r="1" fill="#8b70bd"/>
+                            <circle cx="15" cy="9" r="1" fill="#8b70bd"/>
+                        </svg>
+                    </div>
                     <h3>Holistic Approach</h3>
-                    <p>We consider the whole child - their communication, social, emotional, and educational needs - in our therapy planning.</p>
+                    <p>We consider the whole child - their communication, social, emotional, and educational needs.</p>
                 </div>
 
                 <div class="feature-card">
-                    <div class="feature-icon">🤝</div>
+                    <div class="feature-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M16 21V5C16 4.46957 15.7893 3.96086 15.4142 3.58579C15.0391 3.21071 14.5304 3 14 3H10C9.46957 3 8.96086 3.21071 8.58579 3.58579C8.21071 3.96086 8 4.46957 8 5V21" stroke="#8b70bd" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4 7H8" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 7H20" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M4 12H8" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 12H20" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M4 17H8" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M16 17H20" stroke="#8b70bd" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
                     <h3>Collaborative Support</h3>
-                    <p>We work closely with educators, other health professionals, and support services to ensure consistent, comprehensive care.</p>
+                    <p>We work closely with educators, health professionals, and support services for consistent, comprehensive care.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- Stats -->
     <section class="section" style="background: var(--gray-50);">
         <div class="container">
             <div class="stats">
@@ -599,41 +857,75 @@
                 <p>Comprehensive speech pathology support for children at every stage</p>
             </div>
 
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🗣️</div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Speech & Articulation</h3>
                     <p>Supporting clear speech sound production and helping children be understood by others.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">📚</div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2V2Z" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Language Development</h3>
                     <p>Building vocabulary, grammar, and the ability to understand and use language effectively.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">✍️</div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 2V8H20" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 13H8" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 17H8" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M10 9H9H8" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Literacy Support</h3>
                     <p>Developing pre-literacy and literacy skills including phonological awareness, reading, and writing.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🎓</div>
-                    <h3>School Readiness</h3>
-                    <p>Preparing children with the communication skills they need for a successful transition to school.</p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 16.92V19.92C22.0011 20.1985 21.9441 20.4742 21.8325 20.7293C21.7209 20.9845 21.5573 21.2136 21.3521 21.4019C21.1468 21.5901 20.9046 21.7335 20.6407 21.8227C20.3769 21.9119 20.0974 21.9451 19.82 21.92C16.7428 21.5856 13.787 20.5341 11.19 18.85C8.77382 17.3147 6.72533 15.2662 5.18999 12.85C3.49997 10.2412 2.44824 7.27097 2.11999 4.17997C2.095 3.90344 2.12787 3.62474 2.21649 3.3616C2.30512 3.09846 2.44756 2.85666 2.63476 2.6516C2.82196 2.44653 3.0498 2.28268 3.30379 2.1705C3.55777 2.05831 3.83233 2.00024 4.10999 1.99997H7.10999C7.5953 1.9952 8.06579 2.16705 8.43376 2.48351C8.80173 2.79996 9.04207 3.23942 9.10999 3.71997C9.23662 4.68004 9.47144 5.6227 9.80999 6.52997C9.94454 6.8879 9.97366 7.27689 9.8939 7.65086C9.81415 8.02482 9.62886 8.36809 9.35999 8.63998L8.08999 9.90997C9.51355 12.4135 11.5864 14.4864 14.09 15.91L15.36 14.64C15.6319 14.3711 15.9751 14.1858 16.3491 14.1061C16.7231 14.0263 17.1121 14.0554 17.47 14.19C18.3773 14.5285 19.3199 14.7634 20.28 14.89C20.7658 14.9585 21.2094 15.2032 21.5265 15.5775C21.8437 15.9518 22.0122 16.4296 22 16.92Z" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3>Early Intervention</h3>
+                    <p>Supporting communication development from birth to school age for babies and toddlers.</p>
                 </div>
 
-                <div class="feature-card">
-                    <div class="feature-icon">🍽️</div>
-                    <h3>Feeding & Swallowing</h3>
-                    <p>Assessment and therapy for feeding difficulties, oral motor skills, and safe swallowing.</p>
-                </div>
-
-                <div class="feature-card">
-                    <div class="feature-icon">💭</div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="9" cy="7" r="4" stroke="#ff9a76" stroke-width="2"/>
+                            <path d="M2 21V19C2 17.9391 2.42143 16.9217 3.17157 16.1716C3.92172 15.4214 4.93913 15 6 15H12C13.0609 15 14.0783 15.4214 14.8284 16.1716C15.5786 16.9217 16 17.9391 16 19V21" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M16 11L18 13L22 9" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
                     <h3>Social Communication</h3>
                     <p>Building skills for successful interactions, friendships, and social understanding.</p>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="#ff9a76" stroke-width="2"/>
+                            <path d="M8 15C8.91212 16.2144 10.3643 17 12 17C13.6357 17 15.0879 16.2144 16 15" stroke="#ff9a76" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M9 10H9.01" stroke="#ff9a76" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M15 10H15.01" stroke="#ff9a76" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Feeding & Swallowing</h3>
+                    <p>Assessment and therapy for feeding difficulties, oral motor skills, and safe swallowing.</p>
                 </div>
             </div>
 
@@ -643,7 +935,85 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- FAQ -->
+    <section class="section" style="background: var(--gray-50);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Frequently Asked Questions</h2>
+                <p>Common questions about our speech pathology services</p>
+            </div>
+
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        How do I know if my child needs speech pathology?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            If your child is having difficulty being understood, struggling with learning to talk, having trouble following instructions, or facing challenges with reading and writing, speech pathology may help. We offer assessments to identify your child's specific needs and develop a tailored therapy plan.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        What ages do you work with?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            We provide services for children from birth through to 18 years of age. Our therapy approaches are tailored to each developmental stage, from early intervention for babies and toddlers through to support for teenagers preparing for adulthood.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Do you accept NDIS funding?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Yes, we are registered NDIS providers and can work with families who have NDIS plans. We can provide support with plan management and help you understand how to access speech pathology services through your NDIS funding.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        How long are therapy sessions?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Standard therapy sessions are typically 45-60 minutes, depending on your child's age, needs, and attention span. For younger children or those with specific needs, we may recommend shorter, more frequent sessions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        Can parents/caregivers be involved in sessions?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Absolutely! We encourage family involvement in therapy. Parent and caregiver participation is an important part of our approach, as it helps ensure strategies are carried over into daily life and supports your child's progress between sessions.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <button class="faq-question" onclick="toggleFaq(this)">
+                        How many sessions will my child need?
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-content">
+                            Every child is different, and the number of sessions depends on their individual needs and goals. After an initial assessment, we'll discuss a therapy plan with you and provide recommendations for frequency and duration. We regularly review progress and adjust the plan as needed.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
     <section class="section">
         <div class="container">
             <div class="cta-section">
@@ -660,58 +1030,113 @@
     <!-- Contact Bar -->
     <div class="contact-bar">
         <div class="contact-item">
-            <span class="contact-item-icon">📞</span>
+            <span>📞</span>
             <a href="tel:0403523337">0403 523 337</a>
         </div>
         <div class="contact-item">
-            <span class="contact-item-icon">✉️</span>
+            <span>✉️</span>
             <a href="mailto:communicationconnections.sp@gmail.com">communicationconnections.sp@gmail.com</a>
         </div>
         <div class="contact-item">
-            <span class="contact-item-icon">📍</span>
+            <span>📍</span>
             <span>Maitland, NSW</span>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Communication Connections</h3>
-                <p>Quality, family-focused speech pathology services for children aged 0-18 in Maitland and the Hunter Valley.</p>
+        <div class="container">
+            <!-- Acknowledgement of Country -->
+            <div class="footer-statement">
+                <img src="https://aiatsis.gov.au/sites/default/files/styles/large/public/2020-08/aboriginal_flag_1_0.png?itok=P7OFneaR" alt="Aboriginal Flag" class="footer-flag">
+                <div class="footer-statement-text">
+                    <strong>Acknowledgement of Country</strong><br>
+                    We acknowledge the Wonnarua people, the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging, and extend that respect to all Aboriginal and Torres Strait Islander peoples.
+                </div>
             </div>
 
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            <!-- Inclusion Statement -->
+            <div class="footer-statement">
+                <img src="https://hrc-prod-requests.s3-us-west-2.amazonaws.com/Inclusive-Pride-Flag.png" alt="Progress Pride Flag" class="footer-flag">
+                <div class="footer-statement-text">
+                    <strong>Inclusion Statement</strong><br>
+                    Communication Connections is committed to providing inclusive, affirming services for all children and families, regardless of cultural background, gender identity, sexual orientation, or family structure. Everyone is welcome here.
+                </div>
             </div>
 
-            <div class="footer-section">
-                <h3>Opening Hours</h3>
-                <ul class="hours-list">
-                    <li><span>Monday</span> <span>9am - 6pm</span></li>
-                    <li><span>Tuesday</span> <span>8am - 5pm</span></li>
-                    <li><span>Wednesday</span> <span>9am - 6pm</span></li>
-                    <li><span>Thursday</span> <span>8am - 6pm</span></li>
-                    <li><span>Friday</span> <span>8am - 6pm</span></li>
-                </ul>
-            </div>
-        </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Communication Connections</h3>
+                    <p>Quality, family-focused speech pathology services for children aged 0-18 in Maitland and the Hunter Valley.</p>
+                </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Communication Connections Speech Pathology. All rights reserved.</p>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Phone: <a href="tel:0403523337">0403 523 337</a></p>
+                    <p>Email: <a href="mailto:communicationconnections.sp@gmail.com">communicationconnections.sp@gmail.com</a></p>
+                    <p>Location: Maitland, NSW</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Communication Connections Speech Pathology. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
+            const mobileToggle = document.getElementById('mobileToggle');
             navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
         }
+
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const wasActive = faqItem.classList.contains('active');
+            
+            // Close all FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Open clicked FAQ if it wasn't active
+            if (!wasActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.nav');
+            const toggle = document.getElementById('mobileToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
