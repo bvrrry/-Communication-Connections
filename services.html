@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services | Communication Connections Speech Pathology</title>
     <meta name="description" content="Comprehensive speech pathology services including speech & language therapy, literacy support, feeding therapy, and AAC for children 0-18 in Maitland, NSW.">
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -16,10 +16,12 @@
         :root {
             --purple-primary: #8b70bd;
             --purple-dark: #6d28d9;
-            --purple-light: #ede9fe;
-            --purple-lighter: #f5f3ff;
-            --teal: #14b8a6;
-            --orange: #f59e0b;
+            --purple-light: #c4b5fd;
+            --purple-lighter: #ede9fe;
+            --purple-pale: #f5f3ff;
+            --peach: #ff9a76;
+            --peach-light: #ffb396;
+            --peach-pale: #fff5f0;
             --gray-900: #111827;
             --gray-800: #1f2937;
             --gray-700: #374151;
@@ -38,7 +40,7 @@
             background: white;
         }
 
-        /* Navigation */
+        /* Navigation - Same as index */
         .nav {
             background: white;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -50,7 +52,7 @@
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 1rem 2rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -59,13 +61,14 @@
         .logo-link {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.875rem;
             text-decoration: none;
         }
 
         .logo-icon {
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
+            flex-shrink: 0;
         }
 
         .logo-text-nav {
@@ -74,14 +77,14 @@
         }
 
         .brand-name-nav {
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             font-weight: 800;
             color: var(--purple-primary);
             line-height: 1.2;
         }
 
         .brand-tagline-nav {
-            font-size: 0.75rem;
+            font-size: 0.6875rem;
             color: var(--gray-600);
             font-weight: 500;
         }
@@ -99,22 +102,11 @@
             font-weight: 500;
             font-size: 0.9375rem;
             transition: color 0.2s;
-            position: relative;
         }
 
         .nav-links a:hover,
         .nav-links a.active {
             color: var(--purple-primary);
-        }
-
-        .nav-links a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -0.5rem;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--purple-primary);
         }
 
         .btn-nav {
@@ -130,35 +122,68 @@
         .btn-nav:hover {
             background: var(--purple-dark);
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(139, 112, 189, 0.3);
         }
 
         .mobile-menu-toggle {
             display: none;
             background: none;
             border: none;
-            font-size: 1.5rem;
-            color: var(--gray-700);
             cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger {
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--gray-700);
+            transition: all 0.3s;
+        }
+
+        .hamburger::before { top: -7px; }
+        .hamburger::after { top: 7px; }
+
+        .mobile-menu-toggle.active .hamburger {
+            background: transparent;
+        }
+
+        .mobile-menu-toggle.active .hamburger::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .mobile-menu-toggle.active .hamburger::after {
+            transform: rotate(-45deg);
+            top: 0;
         }
 
         /* Page Header */
         .page-header {
             background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-dark) 100%);
             color: white;
-            padding: 4rem 2rem;
+            padding: 3.5rem 1.5rem;
             text-align: center;
         }
 
         .page-header h1 {
-            font-size: 3rem;
+            font-size: 2.75rem;
             font-weight: 800;
-            margin-bottom: 1rem;
+            margin-bottom: 0.875rem;
             letter-spacing: -0.02em;
         }
 
         .page-header p {
-            font-size: 1.25rem;
+            font-size: 1.0625rem;
             opacity: 0.95;
             max-width: 700px;
             margin: 0 auto;
@@ -168,84 +193,88 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 1.5rem;
         }
 
         .section {
-            padding: 5rem 0;
+            padding: 4rem 0;
         }
 
-        /* Service Cards */
+        /* Service Cards - Compact Grid */
         .services-grid {
             display: grid;
-            gap: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
 
         .service-card {
             background: white;
             border: 1px solid var(--gray-200);
-            border-radius: 1.5rem;
-            overflow: hidden;
+            border-radius: 1rem;
+            padding: 1.75rem;
             transition: all 0.3s;
         }
 
         .service-card:hover {
-            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
-            border-color: var(--purple-light);
-        }
-
-        .service-content {
-            padding: 2.5rem;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-color: var(--peach-light);
         }
 
         .service-header {
             display: flex;
             align-items: flex-start;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: 1rem;
+            margin-bottom: 1rem;
         }
 
         .service-icon {
-            width: 72px;
-            height: 72px;
-            background: var(--purple-light);
-            border-radius: 1rem;
+            width: 52px;
+            height: 52px;
+            background: var(--peach-pale);
+            border-radius: 0.875rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2.5rem;
             flex-shrink: 0;
         }
 
+        .service-icon svg {
+            width: 26px;
+            height: 26px;
+        }
+
         .service-card h2 {
-            font-size: 1.75rem;
+            font-size: 1.25rem;
             font-weight: 700;
             color: var(--gray-900);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.375rem;
         }
 
         .service-subtitle {
             color: var(--gray-600);
-            font-size: 1rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
         }
 
         .service-description {
             color: var(--gray-700);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            font-size: 1.0625rem;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            font-size: 0.9375rem;
         }
 
         .service-list {
             list-style: none;
-            margin-bottom: 1.5rem;
+            margin: 0;
         }
 
         .service-list li {
-            padding: 0.75rem 0;
-            padding-left: 2rem;
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
             position: relative;
-            color: var(--gray-700);
+            color: var(--gray-600);
+            font-size: 0.875rem;
             border-bottom: 1px solid var(--gray-100);
         }
 
@@ -257,34 +286,33 @@
             content: '✓';
             position: absolute;
             left: 0;
-            color: var(--purple-primary);
+            color: var(--peach);
             font-weight: 700;
-            font-size: 1.25rem;
         }
 
-        /* CTA Section */
+        /* CTA */
         .cta-section {
-            background: linear-gradient(135deg, var(--purple-primary) 0%, var(--purple-dark) 100%);
+            background: linear-gradient(135deg, var(--peach) 0%, var(--peach-light) 100%);
             color: white;
             padding: 4rem 2rem;
-            border-radius: 2rem;
+            border-radius: 1.5rem;
             text-align: center;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
+            font-size: 2.25rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
 
         .cta-section p {
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             margin-bottom: 2rem;
             opacity: 0.95;
         }
 
         .btn {
-            padding: 1rem 2rem;
+            padding: 0.875rem 1.75rem;
             border-radius: 100px;
             font-weight: 600;
             font-size: 1rem;
@@ -297,7 +325,7 @@
 
         .btn-primary {
             background: white;
-            color: var(--purple-primary);
+            color: var(--peach);
         }
 
         .btn-primary:hover {
@@ -324,23 +352,20 @@
 
         /* Contact Bar */
         .contact-bar {
-            background: var(--gray-900);
+            background: var(--gray-800);
             color: white;
-            padding: 1.5rem 2rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: center;
-            gap: 3rem;
+            gap: 2rem;
             flex-wrap: wrap;
+            font-size: 0.9375rem;
         }
 
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-        }
-
-        .contact-item-icon {
-            font-size: 1.25rem;
+            gap: 0.5rem;
         }
 
         .contact-item a {
@@ -357,7 +382,7 @@
         .footer {
             background: var(--gray-900);
             color: var(--gray-300);
-            padding: 3rem 2rem 2rem;
+            padding: 3rem 1.5rem 2rem;
         }
 
         .footer-content {
@@ -365,13 +390,13 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 3rem;
+            gap: 2.5rem;
             margin-bottom: 2rem;
         }
 
         .footer-section h3 {
             color: white;
-            font-size: 1.125rem;
+            font-size: 1.0625rem;
             font-weight: 700;
             margin-bottom: 1rem;
         }
@@ -381,6 +406,7 @@
             color: var(--gray-300);
             line-height: 1.8;
             text-decoration: none;
+            font-size: 0.9375rem;
         }
 
         .footer-section a:hover {
@@ -395,33 +421,55 @@
             margin-bottom: 0.5rem;
         }
 
+        .footer-statement {
+            background: rgba(255,255,255,0.05);
+            padding: 1.25rem;
+            border-radius: 0.75rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .footer-flag {
+            width: 40px;
+            height: auto;
+            border-radius: 0.25rem;
+            flex-shrink: 0;
+        }
+
+        .footer-statement-text {
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
         .footer-bottom {
-            border-top: 1px solid var(--gray-700);
+            border-top: 1px solid rgba(255,255,255,0.1);
             padding-top: 2rem;
             text-align: center;
             color: var(--gray-500);
             font-size: 0.875rem;
         }
 
-        .hours-list {
-            list-style: none;
-        }
-
-        .hours-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid var(--gray-700);
-        }
-
-        .hours-list li:last-child {
-            border-bottom: none;
-        }
-
-        /* Responsive */
+        /* Mobile Responsive */
         @media (max-width: 768px) {
+            .nav {
+                background: var(--purple-primary);
+            }
+
+            .brand-name-nav,
+            .brand-tagline-nav {
+                color: white;
+            }
+
             .mobile-menu-toggle {
                 display: block;
+            }
+
+            .hamburger,
+            .hamburger::before,
+            .hamburger::after {
+                background: white;
             }
 
             .nav-links {
@@ -433,7 +481,7 @@
                 background: white;
                 flex-direction: column;
                 padding: 1rem;
-                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                box-shadow: 0 4px 12px rgba(0,0,0,0.1);
                 gap: 0;
             }
 
@@ -444,23 +492,35 @@
             .nav-links li {
                 width: 100%;
                 text-align: center;
-                padding: 1rem 0;
+                padding: 0.875rem 0;
                 border-bottom: 1px solid var(--gray-100);
+            }
+
+            .nav-links li:last-child {
+                border-bottom: none;
+            }
+
+            .page-header {
+                padding: 3rem 1.25rem;
             }
 
             .page-header h1 {
                 font-size: 2rem;
             }
 
-            .service-header {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
+            .services-grid {
+                grid-template-columns: 1fr;
             }
 
             .contact-bar {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.75rem;
+                text-align: center;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
             }
         }
     </style>
@@ -471,8 +531,19 @@
         <div class="nav-container">
             <a href="index.html" class="logo-link">
                 <svg class="logo-icon" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M 40 35 C 20 35, 10 50, 10 75 C 10 100, 20 115, 40 115 C 50 115, 55 112, 60 108 L 55 95 C 50 98, 45 100, 40 100 C 30 100, 25 90, 25 75 C 25 60, 30 50, 40 50 C 50 50, 60 55, 75 70 C 90 85, 110 110, 130 130 C 145 145, 155 150, 165 150 C 180 150, 190 135, 190 110 C 190 85, 180 70, 165 70 C 155 70, 150 73, 145 77 L 150 90 C 155 87, 160 85, 165 85 C 175 85, 180 95, 180 110 C 180 125, 175 135, 165 135 C 155 135, 145 130, 130 115 C 115 100, 95 75, 75 55 C 60 40, 50 35, 40 35 Z" fill="#8b70bd"/>
-                    <path d="M 35 160 C 20 160, 10 145, 10 120 C 10 95, 20 80, 35 80 C 45 80, 50 83, 55 87 L 60 100 C 55 97, 50 95, 45 95 C 35 95, 30 105, 30 120 C 30 135, 35 145, 45 145 C 55 145, 65 140, 80 125 C 95 110, 115 85, 135 65 C 150 50, 160 45, 170 45 C 185 45, 195 60, 195 85 C 195 110, 185 125, 170 125 C 160 125, 155 122, 150 118 L 145 105 C 150 108, 155 110, 160 110 C 170 110, 175 100, 175 85 C 175 70, 170 60, 160 60 C 150 60, 140 65, 125 80 C 110 95, 90 120, 70 140 C 55 155, 45 160, 35 160 Z" fill="#9370db" opacity="0.95"/>
+                    <defs>
+                        <mask id="mask1">
+                            <rect width="200" height="200" fill="white"/>
+                            <circle cx="110" cy="100" r="55" fill="black"/>
+                        </mask>
+                        <mask id="mask2">
+                            <rect width="200" height="200" fill="white"/>
+                            <circle cx="90" cy="100" r="55" fill="black"/>
+                        </mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="#8b70bd" mask="url(#mask1)"/>
+                    <circle cx="110" cy="100" r="55" fill="#c4b5fd" mask="url(#mask2)"/>
+                    <circle cx="100" cy="100" r="25" fill="#9370db"/>
                 </svg>
                 <div class="logo-text-nav">
                     <div class="brand-name-nav">Communication Connections</div>
@@ -480,7 +551,9 @@
                 </div>
             </a>
             
-            <button class="mobile-menu-toggle" onclick="toggleMenu()">☰</button>
+            <button class="mobile-menu-toggle" id="mobileToggle" onclick="toggleMenu()">
+                <div class="hamburger"></div>
+            </button>
             
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
@@ -502,186 +575,205 @@
             <div class="services-grid">
                 <!-- Speech & Articulation -->
                 <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">🗣️</div>
-                            <div>
-                                <h2>Speech & Articulation</h2>
-                                <p class="service-subtitle">Clear speech sound production</p>
-                            </div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M21 15C21 15.5304 20.7893 16.0391 20.4142 16.4142C20.0391 16.7893 19.5304 17 19 17H7L3 21V5C3 4.46957 3.21071 3.96086 3.58579 3.58579C3.96086 3.21071 4.46957 3 5 3H19C19.5304 3 20.0391 3.21071 20.4142 3.58579C20.7893 3.96086 21 4.46957 21 5V15Z" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
-                        <p class="service-description">
-                            We help children develop clear, intelligible speech so they can be understood by family, friends, and teachers. Our therapy targets specific speech sounds that may be delayed or disordered, using play-based and evidence-based techniques.
-                        </p>
-                        <ul class="service-list">
-                            <li>Assessment of speech sound development</li>
-                            <li>Treatment of articulation disorders</li>
-                            <li>Phonological processing therapy</li>
-                            <li>Childhood apraxia of speech intervention</li>
-                            <li>Parent coaching and home practice strategies</li>
-                        </ul>
+                        <div>
+                            <h2>Speech & Articulation</h2>
+                            <p class="service-subtitle">Clear speech sound production</p>
+                        </div>
                     </div>
+                    <p class="service-description">
+                        We help children develop clear, intelligible speech so they can be understood by family, friends, and teachers.
+                    </p>
+                    <ul class="service-list">
+                        <li>Speech sound assessments</li>
+                        <li>Articulation therapy</li>
+                        <li>Phonological processing</li>
+                        <li>Childhood apraxia support</li>
+                    </ul>
                 </div>
 
                 <!-- Language Development -->
                 <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">📚</div>
-                            <div>
-                                <h2>Language Development</h2>
-                                <p class="service-subtitle">Understanding and using language</p>
-                            </div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 19.5C4 18.837 4.26339 18.2011 4.73223 17.7322C5.20107 17.2634 5.83696 17 6.5 17H20" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M6.5 2H20V22H6.5C5.83696 22 5.20107 21.7366 4.73223 21.2678C4.26339 20.7989 4 20.163 4 19.5V4.5C4 3.83696 4.26339 3.20107 4.73223 2.73223C5.20107 2.26339 5.83696 2 6.5 2V2Z" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
-                        <p class="service-description">
-                            Language skills are fundamental for learning, social interaction, and academic success. We support children in developing both their understanding (receptive language) and use (expressive language) of words, sentences, and concepts.
-                        </p>
-                        <ul class="service-list">
-                            <li>Vocabulary building and word learning</li>
-                            <li>Grammar and sentence structure development</li>
-                            <li>Following directions and comprehension skills</li>
-                            <li>Narrative and storytelling abilities</li>
-                            <li>Concept development (colors, numbers, time, etc.)</li>
-                        </ul>
+                        <div>
+                            <h2>Language Development</h2>
+                            <p class="service-subtitle">Understanding and using language</p>
+                        </div>
                     </div>
+                    <p class="service-description">
+                        Supporting children in developing both receptive and expressive language skills for learning and communication.
+                    </p>
+                    <ul class="service-list">
+                        <li>Vocabulary building</li>
+                        <li>Grammar development</li>
+                        <li>Comprehension skills</li>
+                        <li>Narrative abilities</li>
+                    </ul>
                 </div>
 
                 <!-- Literacy Support -->
                 <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">✍️</div>
-                            <div>
-                                <h2>Literacy & Reading Support</h2>
-                                <p class="service-subtitle">Building foundations for reading and writing</p>
-                            </div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M14 2V8H20" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M16 13H8M16 17H8M10 9H9H8" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
-                        <p class="service-description">
-                            Strong literacy skills begin with solid language and phonological awareness. We work on the building blocks of reading and writing, supporting children who are at risk of or experiencing literacy difficulties.
-                        </p>
-                        <ul class="service-list">
-                            <li>Phonological awareness (rhyming, sound blending)</li>
-                            <li>Letter-sound knowledge and phonics</li>
-                            <li>Reading comprehension strategies</li>
-                            <li>Written language and spelling support</li>
-                            <li>Support for dyslexia and reading disorders</li>
-                        </ul>
+                        <div>
+                            <h2>Literacy & Reading</h2>
+                            <p class="service-subtitle">Foundations for reading and writing</p>
+                        </div>
                     </div>
+                    <p class="service-description">
+                        Building the phonological awareness and literacy skills children need for reading and writing success.
+                    </p>
+                    <ul class="service-list">
+                        <li>Phonological awareness</li>
+                        <li>Letter-sound knowledge</li>
+                        <li>Reading comprehension</li>
+                        <li>Dyslexia support</li>
+                    </ul>
                 </div>
 
                 <!-- Early Intervention -->
                 <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">👶</div>
-                            <div>
-                                <h2>Early Intervention (0-5 years)</h2>
-                                <p class="service-subtitle">Supporting communication from the start</p>
-                            </div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="8" r="5" stroke="#ff9a76" stroke-width="2"/>
+                                <path d="M20 21C20 16.5817 16.4183 13 12 13C7.58172 13 4 16.5817 4 21" stroke="#ff9a76" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
                         </div>
-                        <p class="service-description">
-                            The early years are critical for communication development. We provide assessment and therapy for babies, toddlers, and preschoolers who may be late talkers or showing early signs of communication difficulties.
-                        </p>
-                        <ul class="service-list">
-                            <li>Late talking and language delay support</li>
-                            <li>Play skills and early interaction</li>
-                            <li>Pre-linguistic communication development</li>
-                            <li>Transition to preschool support</li>
-                            <li>Parent-implemented intervention strategies</li>
-                        </ul>
+                        <div>
+                            <h2>Early Intervention (0-5 years)</h2>
+                            <p class="service-subtitle">Supporting communication from the start</p>
+                        </div>
                     </div>
+                    <p class="service-description">
+                        Assessment and therapy for babies, toddlers, and preschoolers showing early signs of communication difficulties.
+                    </p>
+                    <ul class="service-list">
+                        <li>Late talking support</li>
+                        <li>Play skills development</li>
+                        <li>Pre-linguistic communication</li>
+                        <li>Parent coaching</li>
+                    </ul>
                 </div>
 
                 <!-- Social Communication -->
                 <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">🤝</div>
-                            <div>
-                                <h2>Social Communication</h2>
-                                <p class="service-subtitle">Building friendships and social skills</p>
-                            </div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="9" cy="7" r="4" stroke="#ff9a76" stroke-width="2"/>
+                                <path d="M2 21V19C2 17.9391 2.42143 16.9217 3.17157 16.1716C3.92172 15.4214 4.93913 15 6 15H12C13.0609 15 14.0783 15.4214 14.8284 16.1716C15.5786 16.9217 16 17.9391 16 19V21" stroke="#ff9a76" stroke-width="2"/>
+                                <path d="M16 11L18 13L22 9" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
                         </div>
-                        <p class="service-description">
-                            Social communication skills help children make friends, work in groups, and navigate social situations. We support children who struggle with pragmatic language, perspective-taking, and social interaction.
-                        </p>
-                        <ul class="service-list">
-                            <li>Conversational skills and turn-taking</li>
-                            <li>Understanding and using non-verbal communication</li>
-                            <li>Perspective-taking and theory of mind</li>
-                            <li>Social problem-solving strategies</li>
-                            <li>Support for children with autism spectrum disorder</li>
-                        </ul>
+                        <div>
+                            <h2>Social Communication</h2>
+                            <p class="service-subtitle">Building friendships and social skills</p>
+                        </div>
                     </div>
+                    <p class="service-description">
+                        Supporting children who struggle with pragmatic language, perspective-taking, and social interaction.
+                    </p>
+                    <ul class="service-list">
+                        <li>Conversational skills</li>
+                        <li>Non-verbal communication</li>
+                        <li>Perspective-taking</li>
+                        <li>Autism spectrum support</li>
+                    </ul>
                 </div>
 
                 <!-- Feeding & Swallowing -->
                 <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">🍽️</div>
-                            <div>
-                                <h2>Feeding & Swallowing</h2>
-                                <p class="service-subtitle">Safe and enjoyable eating experiences</p>
-                            </div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="10" stroke="#ff9a76" stroke-width="2"/>
+                                <path d="M8 15C8.91212 16.2144 10.3643 17 12 17C13.6357 17 15.0879 16.2144 16 15" stroke="#ff9a76" stroke-width="2" stroke-linecap="round"/>
+                                <path d="M9 10H9.01M15 10H15.01" stroke="#ff9a76" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
                         </div>
-                        <p class="service-description">
-                            Feeding difficulties can impact nutrition, growth, and family mealtimes. We assess and treat oral motor skills, sensory feeding challenges, and swallowing difficulties to support safe and positive eating.
-                        </p>
-                        <ul class="service-list">
-                            <li>Oral motor skill development</li>
-                            <li>Sensory-based feeding challenges</li>
-                            <li>Picky eating and food selectivity</li>
-                            <li>Transitioning to solid foods</li>
-                            <li>Mealtime behavior strategies</li>
-                        </ul>
+                        <div>
+                            <h2>Feeding & Swallowing</h2>
+                            <p class="service-subtitle">Safe and enjoyable eating</p>
+                        </div>
                     </div>
+                    <p class="service-description">
+                        Assessment and therapy for feeding difficulties, oral motor skills, and swallowing challenges.
+                    </p>
+                    <ul class="service-list">
+                        <li>Oral motor development</li>
+                        <li>Sensory feeding issues</li>
+                        <li>Picky eating support</li>
+                        <li>Mealtime strategies</li>
+                    </ul>
                 </div>
 
                 <!-- AAC -->
                 <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">💬</div>
-                            <div>
-                                <h2>AAC & Alternative Communication</h2>
-                                <p class="service-subtitle">Every child deserves a voice</p>
-                            </div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="3" y="3" width="18" height="18" rx="2" stroke="#ff9a76" stroke-width="2"/>
+                                <path d="M9 9H9.01M15 9H15.01M9 15H15" stroke="#ff9a76" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
                         </div>
-                        <p class="service-description">
-                            For children with complex communication needs, we provide assessment and support for augmentative and alternative communication (AAC) systems including communication devices, apps, and visual supports.
-                        </p>
-                        <ul class="service-list">
-                            <li>AAC assessment and system selection</li>
-                            <li>Communication device programming and training</li>
-                            <li>Visual supports (PECS, core boards, schedules)</li>
-                            <li>Partner training for families and educators</li>
-                            <li>Ongoing AAC implementation support</li>
-                        </ul>
+                        <div>
+                            <h2>AAC & Alternative Communication</h2>
+                            <p class="service-subtitle">Every child deserves a voice</p>
+                        </div>
                     </div>
+                    <p class="service-description">
+                        Assessment and support for augmentative and alternative communication systems including devices and apps.
+                    </p>
+                    <ul class="service-list">
+                        <li>AAC assessment</li>
+                        <li>Device programming</li>
+                        <li>Visual supports (PECS)</li>
+                        <li>Family training</li>
+                    </ul>
                 </div>
 
                 <!-- School Support -->
                 <div class="service-card">
-                    <div class="service-content">
-                        <div class="service-header">
-                            <div class="service-icon">🎓</div>
-                            <div>
-                                <h2>School Readiness & Support</h2>
-                                <p class="service-subtitle">Preparing for academic success</p>
-                            </div>
+                    <div class="service-header">
+                        <div class="service-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 10V15C22 15.5304 21.7893 16.0391 21.4142 16.4142C21.0391 16.7893 20.5304 17 20 17H4C3.46957 17 2.96086 16.7893 2.58579 16.4142C2.21071 16.0391 2 15.5304 2 15V10" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M22 5H2L12 13L22 5Z" stroke="#ff9a76" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M12 13V22" stroke="#ff9a76" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
                         </div>
-                        <p class="service-description">
-                            Starting school is a big transition. We help children develop the communication, language, and literacy skills needed for kindergarten and beyond, and provide ongoing support for school-aged children.
-                        </p>
-                        <ul class="service-list">
-                            <li>Pre-school language and literacy screening</li>
-                            <li>School readiness skill development</li>
-                            <li>Classroom language and curriculum support</li>
-                            <li>Collaboration with teachers and schools</li>
-                            <li>IEP and learning support planning</li>
-                        </ul>
+                        <div>
+                            <h2>School Readiness & Support</h2>
+                            <p class="service-subtitle">Preparing for academic success</p>
+                        </div>
                     </div>
+                    <p class="service-description">
+                        Developing the communication, language, and literacy skills needed for kindergarten and beyond.
+                    </p>
+                    <ul class="service-list">
+                        <li>School readiness skills</li>
+                        <li>Classroom language support</li>
+                        <li>Teacher collaboration</li>
+                        <li>IEP planning</li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -704,58 +796,85 @@
     <!-- Contact Bar -->
     <div class="contact-bar">
         <div class="contact-item">
-            <span class="contact-item-icon">📞</span>
+            <span>📞</span>
             <a href="tel:0403523337">0403 523 337</a>
         </div>
         <div class="contact-item">
-            <span class="contact-item-icon">✉️</span>
+            <span>✉️</span>
             <a href="mailto:communicationconnections.sp@gmail.com">communicationconnections.sp@gmail.com</a>
         </div>
         <div class="contact-item">
-            <span class="contact-item-icon">📍</span>
+            <span>📍</span>
             <span>Maitland, NSW</span>
         </div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Communication Connections</h3>
-                <p>Quality, family-focused speech pathology services for children aged 0-18 in Maitland and the Hunter Valley.</p>
+        <div class="container">
+            <div class="footer-statement">
+                <img src="https://aiatsis.gov.au/sites/default/files/styles/large/public/2020-08/aboriginal_flag_1_0.png?itok=P7OFneaR" alt="Aboriginal Flag" class="footer-flag">
+                <div class="footer-statement-text">
+                    <strong>Acknowledgement of Country</strong><br>
+                    We acknowledge the Wonnarua people, the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging, and extend that respect to all Aboriginal and Torres Strait Islander peoples.
+                </div>
             </div>
 
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul class="footer-links">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="services.html">Services</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
+            <div class="footer-statement">
+                <img src="https://hrc-prod-requests.s3-us-west-2.amazonaws.com/Inclusive-Pride-Flag.png" alt="Progress Pride Flag" class="footer-flag">
+                <div class="footer-statement-text">
+                    <strong>Inclusion Statement</strong><br>
+                    Communication Connections is committed to providing inclusive, affirming services for all children and families, regardless of cultural background, gender identity, sexual orientation, or family structure. Everyone is welcome here.
+                </div>
             </div>
 
-            <div class="footer-section">
-                <h3>Opening Hours</h3>
-                <ul class="hours-list">
-                    <li><span>Monday</span> <span>9am - 6pm</span></li>
-                    <li><span>Tuesday</span> <span>8am - 5pm</span></li>
-                    <li><span>Wednesday</span> <span>9am - 6pm</span></li>
-                    <li><span>Thursday</span> <span>8am - 6pm</span></li>
-                    <li><span>Friday</span> <span>8am - 6pm</span></li>
-                </ul>
-            </div>
-        </div>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Communication Connections</h3>
+                    <p>Quality, family-focused speech pathology services for children aged 0-18 in Maitland and the Hunter Valley.</p>
+                </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Communication Connections Speech Pathology. All rights reserved.</p>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Phone: <a href="tel:0403523337">0403 523 337</a></p>
+                    <p>Email: <a href="mailto:communicationconnections.sp@gmail.com">communicationconnections.sp@gmail.com</a></p>
+                    <p>Location: Maitland, NSW</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Communication Connections Speech Pathology. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
+            const mobileToggle = document.getElementById('mobileToggle');
             navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
         }
+
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('.nav');
+            const toggle = document.getElementById('mobileToggle');
+            const navLinks = document.getElementById('navLinks');
+            
+            if (!nav.contains(event.target) && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+                toggle.classList.remove('active');
+            }
+        });
     </script>
 </body>
 </html>
