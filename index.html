@@ -1043,13 +1043,28 @@
         </div>
     </div>
 
-    <!-- Footer -->
+ <!-- Footer -->
     <footer class="footer">
         <div class="container">
+            <div class="footer-statement">
+                <img src="https://aiatsis.gov.au/sites/default/files/styles/large/public/2020-08/aboriginal_flag_1_0.png?itok=P7OFneaR" alt="Aboriginal Flag" class="footer-flag">
+                <div class="footer-statement-text">
+                    <strong>Acknowledgement of Country</strong><br>
+                    We acknowledge the Wonnarua people, the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging, and extend that respect to all Aboriginal and Torres Strait Islander peoples.
+                </div>
+            </div>
+
+            <div class="footer-statement">
+                <img src="https://hrc-prod-requests.s3-us-west-2.amazonaws.com/Inclusive-Pride-Flag.png" alt="Progress Pride Flag" class="footer-flag">
+                <div class="footer-statement-text">
+                    <strong>Inclusion Statement</strong><br>
+                    Communication Connections is committed to providing inclusive, affirming services for all children and families, regardless of cultural background, gender identity, sexual orientation, or family structure. Everyone is welcome here.
+                </div>
+            </div>
 
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3></h3>
+                    <h3>Communication Connections</h3>
                     <p>Quality, family-focused speech pathology services for children aged 0-18 in Maitland and the Hunter Valley.</p>
                 </div>
 
@@ -1064,31 +1079,12 @@
 
                 <div class="footer-section">
                     <h3>Contact</h3>
-                    <h4>Phone:<h4> <p><a href="tel:0403523337">0403 523 337</a></p>
-                    <h4>Email:<h4><p> <a href="mailto:communicationconnections.sp@gmail.com">communicationconnections.sp@gmail.com</a></p>
-                    <h4>Location:<h4><p> Maitland, NSW</p>
+                    <p>Phone: <a href="tel:0403523337">0403 523 337</a></p>
+                    <p>Email: <a href="mailto:communicationconnections.sp@gmail.com">communicationconnections.sp@gmail.com</a></p>
+                    <p>Location: Maitland, NSW</p>
                 </div>
             </div>
 
-            <!-- Acknowledgement of Country -->
-            <div class="footer-statement">
-                <img src="https://aiatsis.gov.au/sites/default/files/styles/large/public/2020-08/aboriginal_flag_1_0.png?itok=P7OFneaR" alt="Aboriginal Flag" class="footer-flag">
-                <div class="footer-statement-text">
-                    <strong>Acknowledgement of Country</strong><br>
-                    We acknowledge the Wonnarua people, the Traditional Custodians of the land on which we work and live. We pay our respects to Elders past, present and emerging, and extend that respect to all Aboriginal and Torres Strait Islander peoples.
-                </div>
-            </div>
-
-            <!-- Inclusion Statement -->
-            <div class="footer-statement">
-                <img src="https://hrc-prod-requests.s3-us-west-2.amazonaws.com/Inclusive-Pride-Flag.png" alt="Progress Pride Flag" class="footer-flag">
-                <div class="footer-statement-text">
-                    <strong>Inclusion Statement</strong><br>
-                    Communication Connections is committed to providing inclusive, affirming services for all children and families, regardless of cultural background, gender identity, sexual orientation, or family structure. Everyone is welcome here.
-                </div>
-            </div>
-
-            
             <div class="footer-bottom">
                 <p>&copy; 2026 Communication Connections Speech Pathology. All rights reserved.</p>
             </div>
@@ -1103,32 +1099,6 @@
             mobileToggle.classList.toggle('active');
         }
 
-        function toggleFaq(button) {
-            const faqItem = button.parentElement;
-            const wasActive = faqItem.classList.contains('active');
-            
-            // Close all FAQs
-            document.querySelectorAll('.faq-item').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            // Open clicked FAQ if it wasn't active
-            if (!wasActive) {
-                faqItem.classList.add('active');
-            }
-        }
-
-        // Add scroll effect to navbar
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const nav = document.querySelector('.nav');
             const toggle = document.getElementById('mobileToggle');
