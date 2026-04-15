@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Communication Connections - Brand Guidelines</title>
+    <title>Communication Connections - Brand Showcase</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
         
@@ -16,7 +16,7 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: #111827;
             line-height: 1.6;
-            background: white;
+            background: #f9fafb;
         }
         
         .cover {
@@ -32,45 +32,64 @@
         }
         
         .cover h1 {
-            font-size: 48px;
+            font-size: 56px;
             font-weight: 800;
-            margin: 30px 0 20px 0;
+            margin: 30px 0 15px 0;
+            letter-spacing: -1px;
         }
         
         .cover p {
-            font-size: 20px;
-            opacity: 0.9;
+            font-size: 22px;
+            opacity: 0.95;
+            margin-bottom: 10px;
+        }
+        
+        .cover .subtitle {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-top: 40px;
         }
         
         .page {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 40px;
+            padding: 80px 40px;
+            background: white;
+        }
+        
+        .page:nth-child(even) {
+            background: #f9fafb;
         }
         
         .page-header {
-            border-bottom: 3px solid #8b70bd;
-            padding-bottom: 20px;
-            margin-bottom: 40px;
+            text-align: center;
+            margin-bottom: 60px;
         }
         
         .page-header h2 {
-            font-size: 32px;
-            font-weight: 700;
+            font-size: 40px;
+            font-weight: 800;
             color: #8b70bd;
+            margin-bottom: 15px;
+        }
+        
+        .page-header p {
+            font-size: 18px;
+            color: #6b7280;
         }
         
         h3 {
-            font-size: 20px;
+            font-size: 24px;
             font-weight: 700;
-            margin: 30px 0 15px 0;
+            margin: 40px 0 20px 0;
+            color: #111827;
         }
         
         .color-palette {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin: 30px 0;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
         }
         
         .color-item {
@@ -78,174 +97,499 @@
         }
         
         .color-swatch {
-            height: 100px;
-            border-radius: 8px;
-            margin-bottom: 10px;
-            border: 1px solid #e5e7eb;
+            height: 140px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+        
+        .color-name {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .color-code {
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        
+        .logo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 40px 0;
         }
         
         .logo-showcase {
-            background: #f9fafb;
-            padding: 40px;
-            border-radius: 12px;
-            margin: 20px 0;
+            padding: 60px 40px;
+            border-radius: 16px;
             text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .logo-showcase.light {
+            background: white;
         }
         
         .logo-showcase.dark {
             background: #111827;
         }
         
-        .guideline-box {
-            background: #ede9fe;
-            border-left: 4px solid #8b70bd;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 4px;
-        }
-        
-        .social-banner {
-            background: #8b70bd;
-            color: white;
-            padding: 40px;
-            border-radius: 8px;
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-        }
-        
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border-bottom: 1px solid #e5e7eb;
-        }
-        
-        th {
-            background: #f9fafb;
+        .logo-label {
+            font-size: 13px;
             font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 30px;
+        }
+        
+        .logo-showcase.light .logo-label {
+            color: #8b70bd;
+        }
+        
+        .logo-showcase.dark .logo-label {
+            color: #c4b5fd;
+        }
+        
+        .banner-mockup {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+            margin: 40px 0;
+        }
+        
+        .linkedin-banner {
+            background: linear-gradient(135deg, #8b70bd 0%, #6d28d9 100%);
+            padding: 50px 60px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            min-height: 200px;
+        }
+        
+        .linkedin-banner-dark {
+            background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+            padding: 50px 60px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            min-height: 200px;
+        }
+        
+        .facebook-banner {
+            background: linear-gradient(135deg, #ff9a76 0%, #ffb396 100%);
+            padding: 45px 60px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            min-height: 180px;
+        }
+        
+        .facebook-banner-alt {
+            background: linear-gradient(to right, #8b70bd 0%, #c4b5fd 50%, #ede9fe 100%);
+            padding: 45px 60px;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            min-height: 180px;
+        }
+        
+        .banner-content h3 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0 0 10px 0;
+            color: white;
+        }
+        
+        .banner-content p {
+            font-size: 16px;
+            opacity: 0.95;
+            margin: 0;
+        }
+        
+        .feature-pills {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        
+        .pill {
+            background: rgba(255,255,255,0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+        }
+        
+        .profile-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .profile-item h4 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #6b7280;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .profile-circle {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 0 auto 20px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+        }
+        
+        .profile-circle.purple {
+            background: linear-gradient(135deg, #8b70bd 0%, #6d28d9 100%);
+        }
+        
+        .profile-circle.peach {
+            background: linear-gradient(135deg, #ff9a76 0%, #ffb396 100%);
+        }
+        
+        .profile-circle.white {
+            background: white;
+            border: 3px solid #e5e7eb;
+        }
+        
+        .dimension-label {
+            font-size: 12px;
+            color: #9ca3af;
+            font-style: italic;
+            margin-top: 10px;
+        }
+        
+        .email-preview {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+        
+        .email-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding-bottom: 20px;
+            border-bottom: 2px solid #f3f4f6;
+            margin-bottom: 20px;
+        }
+        
+        .email-logo-text {
+            font-weight: 700;
+            font-size: 16px;
+            color: #8b70bd;
+        }
+        
+        .email-tagline {
+            font-size: 12px;
+            color: #6b7280;
+        }
+        
+        .email-details {
+            font-size: 14px;
+            line-height: 1.8;
+            color: #374151;
         }
     </style>
 </head>
 <body>
+    <!-- Cover Page -->
     <div class="cover">
-        <svg width="150" height="150" viewBox="0 0 200 200">
+        <svg width="180" height="180" viewBox="0 0 200 200">
             <defs>
-                <mask id="m1"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
-                <mask id="m2"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                <mask id="cover1"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                <mask id="cover2"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
             </defs>
-            <circle cx="90" cy="100" r="55" fill="white" mask="url(#m1)"/>
-            <circle cx="110" cy="100" r="55" fill="rgba(255,255,255,0.7)" mask="url(#m2)"/>
+            <circle cx="90" cy="100" r="55" fill="white" mask="url(#cover1)"/>
+            <circle cx="110" cy="100" r="55" fill="rgba(255,255,255,0.7)" mask="url(#cover2)"/>
             <circle cx="100" cy="100" r="25" fill="rgba(255,255,255,0.9)"/>
         </svg>
         <h1>Communication Connections</h1>
-        <p>Brand Guidelines 2026</p>
+        <p>Speech Pathology</p>
+        <p class="subtitle">Brand Identity Showcase 2026</p>
     </div>
 
+    <!-- Logo Variations -->
     <div class="page">
         <div class="page-header">
-            <h2>Logo System</h2>
+            <h2>Logo Variations</h2>
+            <p>Two overlapping circles creating C-shapes — symbolizing connection and collaboration</p>
         </div>
         
-        <p>The Communication Connections logo features two overlapping circles creating C-shapes. The overlapping center symbolizes connection and collaboration.</p>
-        
-        <div class="logo-showcase">
-            <h3>Primary Logo - Full Color</h3>
-            <svg width="180" height="180" viewBox="0 0 200 200">
-                <defs>
-                    <mask id="ma"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
-                    <mask id="mb"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
-                </defs>
-                <circle cx="90" cy="100" r="55" fill="#8b70bd" mask="url(#ma)"/>
-                <circle cx="110" cy="100" r="55" fill="#c4b5fd" mask="url(#mb)"/>
-                <circle cx="100" cy="100" r="25" fill="#9370db"/>
-            </svg>
-        </div>
-        
-        <div class="guideline-box">
-            <h4>Logo Usage Guidelines</h4>
-            <ul>
-                <li>Maintain minimum clear space of 20px on all sides</li>
-                <li>Minimum size: 40px height digital, 10mm print</li>
-                <li>Do not stretch, rotate, or distort</li>
-                <li>Use white version only on dark backgrounds</li>
-            </ul>
+        <div class="logo-grid">
+            <div class="logo-showcase light">
+                <div class="logo-label">Light Theme</div>
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <defs>
+                        <mask id="light1"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                        <mask id="light2"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="#8b70bd" mask="url(#light1)"/>
+                    <circle cx="110" cy="100" r="55" fill="#c4b5fd" mask="url(#light2)"/>
+                    <circle cx="100" cy="100" r="25" fill="#9370db"/>
+                </svg>
+            </div>
+            
+            <div class="logo-showcase dark">
+                <div class="logo-label">Dark Theme</div>
+                <svg width="200" height="200" viewBox="0 0 200 200">
+                    <defs>
+                        <mask id="dark1"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                        <mask id="dark2"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="white" mask="url(#dark1)"/>
+                    <circle cx="110" cy="100" r="55" fill="#e0e0e0" mask="url(#dark2)"/>
+                    <circle cx="100" cy="100" r="25" fill="#cccccc"/>
+                </svg>
+            </div>
         </div>
     </div>
 
+    <!-- Color Palette -->
     <div class="page">
         <div class="page-header">
             <h2>Color Palette</h2>
+            <p>Warm, professional colors that build trust and approachability</p>
         </div>
         
         <div class="color-palette">
             <div class="color-item">
                 <div class="color-swatch" style="background: #8b70bd;"></div>
-                <div><strong>Primary Purple</strong><br>#8b70bd</div>
+                <div class="color-name">Primary Purple</div>
+                <div class="color-code">#8b70bd</div>
             </div>
             <div class="color-item">
                 <div class="color-swatch" style="background: #ff9a76;"></div>
-                <div><strong>Peachy Coral</strong><br>#ff9a76</div>
+                <div class="color-name">Peachy Coral</div>
+                <div class="color-code">#ff9a76</div>
             </div>
             <div class="color-item">
                 <div class="color-swatch" style="background: #6d28d9;"></div>
-                <div><strong>Deep Purple</strong><br>#6d28d9</div>
+                <div class="color-name">Deep Purple</div>
+                <div class="color-code">#6d28d9</div>
             </div>
             <div class="color-item">
                 <div class="color-swatch" style="background: #ede9fe;"></div>
-                <div><strong>Light Purple</strong><br>#ede9fe</div>
+                <div class="color-name">Light Purple</div>
+                <div class="color-code">#ede9fe</div>
             </div>
         </div>
     </div>
 
+    <!-- LinkedIn Banners -->
     <div class="page">
         <div class="page-header">
-            <h2>Social Media Applications</h2>
+            <h2>LinkedIn Banner Concepts</h2>
+            <p>Professional header images (1584 x 396px)</p>
         </div>
         
-        <h3>LinkedIn Banner (1584 x 396px)</h3>
-        <div class="social-banner" style="background: linear-gradient(135deg, #8b70bd 0%, #6d28d9 100%);">
-            <h2>Communication Connections | Speech Pathology | Maitland, NSW</h2>
+        <h3>Light Theme — Gradient Background</h3>
+        <div class="banner-mockup">
+            <div class="linkedin-banner">
+                <svg width="120" height="120" viewBox="0 0 200 200">
+                    <defs>
+                        <mask id="li1"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                        <mask id="li2"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="white" mask="url(#li1)"/>
+                    <circle cx="110" cy="100" r="55" fill="rgba(255,255,255,0.7)" mask="url(#li2)"/>
+                    <circle cx="100" cy="100" r="25" fill="rgba(255,255,255,0.9)"/>
+                </svg>
+                <div class="banner-content">
+                    <h3>Communication Connections</h3>
+                    <p>Quality speech pathology services for children 0-18 in Maitland, NSW</p>
+                    <div class="feature-pills">
+                        <span class="pill">Family-Focused</span>
+                        <span class="pill">Evidence-Based</span>
+                        <span class="pill">NDIS Registered</span>
+                    </div>
+                </div>
+            </div>
         </div>
         
-        <h3>Facebook Cover (820 x 312px)</h3>
-        <div class="social-banner" style="background: linear-gradient(135deg, #ff9a76 0%, #ffb396 100%);">
-            <h2>Quality Speech Pathology for Children 0-18</h2>
-            <p>Family-focused care in Maitland & the Hunter Valley</p>
+        <h3>Dark Theme — Professional Alternative</h3>
+        <div class="banner-mockup">
+            <div class="linkedin-banner-dark">
+                <svg width="120" height="120" viewBox="0 0 200 200">
+                    <defs>
+                        <mask id="li3"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                        <mask id="li4"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="#8b70bd" mask="url(#li3)"/>
+                    <circle cx="110" cy="100" r="55" fill="#c4b5fd" mask="url(#li4)"/>
+                    <circle cx="100" cy="100" r="25" fill="#9370db"/>
+                </svg>
+                <div class="banner-content">
+                    <h3>Supporting Every Voice, One Child at a Time</h3>
+                    <p>Speech Pathology | Language Development | Literacy Support</p>
+                    <div class="feature-pills">
+                        <span class="pill">📞 0403 523 337</span>
+                        <span class="pill">📍 Maitland & Hunter Valley</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Facebook Covers -->
+    <div class="page">
+        <div class="page-header">
+            <h2>Facebook Cover Concepts</h2>
+            <p>Engaging header images (820 x 312px)</p>
         </div>
         
-        <h3>Quick Reference Table</h3>
-        <table>
-            <tr>
-                <th>Application</th>
-                <th>Dimensions</th>
-                <th>Format</th>
-            </tr>
-            <tr>
-                <td>Email Signature</td>
-                <td>40x40px</td>
-                <td>PNG</td>
-            </tr>
-            <tr>
-                <td>LinkedIn Profile</td>
-                <td>400x400px</td>
-                <td>PNG/JPG</td>
-            </tr>
-            <tr>
-                <td>Facebook Profile</td>
-                <td>400x400px</td>
-                <td>PNG/JPG</td>
-            </tr>
-            <tr>
-                <td>Website Header</td>
-                <td>45px height</td>
-                <td>SVG</td>
-            </tr>
-        </table>
+        <h3>Peachy Coral Theme</h3>
+        <div class="banner-mockup">
+            <div class="facebook-banner">
+                <svg width="100" height="100" viewBox="0 0 200 200">
+                    <defs>
+                        <mask id="fb1"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                        <mask id="fb2"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="white" mask="url(#fb1)"/>
+                    <circle cx="110" cy="100" r="55" fill="rgba(255,255,255,0.7)" mask="url(#fb2)"/>
+                    <circle cx="100" cy="100" r="25" fill="rgba(255,255,255,0.9)"/>
+                </svg>
+                <div class="banner-content">
+                    <h3>Helping Children Find Their Voice</h3>
+                    <p>Speech & Language | Early Intervention | Feeding Support | AAC</p>
+                </div>
+            </div>
+        </div>
+        
+        <h3>Purple Gradient Theme</h3>
+        <div class="banner-mockup">
+            <div class="facebook-banner-alt">
+                <svg width="100" height="100" viewBox="0 0 200 200">
+                    <defs>
+                        <mask id="fb3"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                        <mask id="fb4"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="#6d28d9" mask="url(#fb3)"/>
+                    <circle cx="110" cy="100" r="55" fill="#8b70bd" mask="url(#fb4)"/>
+                    <circle cx="100" cy="100" r="25" fill="#9370db"/>
+                </svg>
+                <div class="banner-content">
+                    <h3>Communication Connections Speech Pathology</h3>
+                    <p>Maitland, NSW • Serving families across the Hunter Valley</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Pictures -->
+    <div class="page">
+        <div class="page-header">
+            <h2>Profile Picture Options</h2>
+            <p>Circular graphics for all social platforms (400 x 400px minimum)</p>
+        </div>
+        
+        <div class="profile-showcase">
+            <div class="profile-item">
+                <h4>Purple Gradient</h4>
+                <div class="profile-circle purple">
+                    <svg width="120" height="120" viewBox="0 0 200 200">
+                        <defs>
+                            <mask id="p1"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                            <mask id="p2"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                        </defs>
+                        <circle cx="90" cy="100" r="55" fill="white" mask="url(#p1)"/>
+                        <circle cx="110" cy="100" r="55" fill="rgba(255,255,255,0.7)" mask="url(#p2)"/>
+                        <circle cx="100" cy="100" r="25" fill="rgba(255,255,255,0.9)"/>
+                    </svg>
+                </div>
+                <div class="dimension-label">Best for LinkedIn, Facebook</div>
+            </div>
+            
+            <div class="profile-item">
+                <h4>Peach Gradient</h4>
+                <div class="profile-circle peach">
+                    <svg width="120" height="120" viewBox="0 0 200 200">
+                        <defs>
+                            <mask id="p3"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                            <mask id="p4"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                        </defs>
+                        <circle cx="90" cy="100" r="55" fill="white" mask="url(#p3)"/>
+                        <circle cx="110" cy="100" r="55" fill="rgba(255,255,255,0.7)" mask="url(#p4)"/>
+                        <circle cx="100" cy="100" r="25" fill="rgba(255,255,255,0.9)"/>
+                    </svg>
+                </div>
+                <div class="dimension-label">Best for Instagram, warm feel</div>
+            </div>
+            
+            <div class="profile-item">
+                <h4>Clean White</h4>
+                <div class="profile-circle white">
+                    <svg width="120" height="120" viewBox="0 0 200 200">
+                        <defs>
+                            <mask id="p5"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                            <mask id="p6"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                        </defs>
+                        <circle cx="90" cy="100" r="55" fill="#8b70bd" mask="url(#p5)"/>
+                        <circle cx="110" cy="100" r="55" fill="#c4b5fd" mask="url(#p6)"/>
+                        <circle cx="100" cy="100" r="25" fill="#9370db"/>
+                    </svg>
+                </div>
+                <div class="dimension-label">Best for professional contexts</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Signature -->
+    <div class="page">
+        <div class="page-header">
+            <h2>Email Signature</h2>
+            <p>Professional footer for all email communications</p>
+        </div>
+        
+        <div class="email-preview">
+
+            <div class="email-details">
+                <strong>[Your Name]</strong><br>
+                [Your Title]<br><br>
+                📞 0403 523 337<br>
+                ✉️ communicationconnections.sp@gmail.com<br>
+                📍 Maitland, NSW | Serving the Hunter Valley<br><br>
+            <div class="email-header">
+                <svg width="50" height="50" viewBox="0 0 200 200">
+                    <defs>
+                        <mask id="email1"><rect width="200" height="200" fill="white"/><circle cx="110" cy="100" r="55" fill="black"/></mask>
+                        <mask id="email2"><rect width="200" height="200" fill="white"/><circle cx="90" cy="100" r="55" fill="black"/></mask>
+                    </defs>
+                    <circle cx="90" cy="100" r="55" fill="#8b70bd" mask="url(#email1)"/>
+                    <circle cx="110" cy="100" r="55" fill="#c4b5fd" mask="url(#email2)"/>
+                    <circle cx="100" cy="100" r="25" fill="#9370db"/>
+                </svg>
+                <div>
+                    <div class="email-logo-text">Communication Connections</div>
+                    <div class="email-tagline">Speech Pathology</div>
+                </div>
+            </div>
+                
+                <em style="font-size: 12px; color: #6b7280;">Supporting communication development for children aged 0-18</em>
+            </div>
+        </div>
     </div>
 </body>
 </html>
